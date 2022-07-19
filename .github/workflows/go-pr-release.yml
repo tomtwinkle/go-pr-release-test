@@ -26,7 +26,7 @@ jobs:
 
       - name: Run
         env:
-          GO_PR_RELEASE_DRY_RUN: true
+          GO_PR_RELEASE_DRY_RUN: false
           GO_PR_RELEASE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GO_PR_RELEASE_RELEASE: main
           GO_PR_RELEASE_DEVELOP: develop
