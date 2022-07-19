@@ -22,9 +22,7 @@ jobs:
       - name: Install go-pr-release
         env:
           VERSION: 0.0.1
-        run: |
-          curl -L -o go-pr-release.tar.gz https://github.com/tomtwinkle/go-pr-release/releases/download/v${VERSION}/go-pr-release_${VERSION}_linux_amd64.tar.gz
-          tar -xfz go-pr-release.tar.gz
+        run: curl -L -o go-pr-release.tar.gz https://github.com/tomtwinkle/go-pr-release/releases/download/v${VERSION}/go-pr-release_${VERSION}_linux_amd64.tar.gz | tar -xz
 
       - name: Run
         env:
