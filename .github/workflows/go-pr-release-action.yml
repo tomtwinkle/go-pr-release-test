@@ -12,11 +12,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Cache Docker Image
-      uses: actions/cache@v2
-      with:
-        path: /var/lib/docker
-        key: docker-go-pr-release-action@v1
     - name: go-pr-release
       uses: tomtwinkle/go-pr-release-action@main
       env:
