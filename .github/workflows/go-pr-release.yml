@@ -12,8 +12,13 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: go-pr-release
-      uses: tomtwinkle/go-pr-release-action@main
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.18
+    - name: Install go-pr-release
+      run: curl -s https://api.github.com/repos/tomtwinkle/go-pr-release/releases/latest | jq '.assets[] | select(.name | contains("linux_amd64")) | .browser_download_url' | xargs curl -L | tar -xz
+    - name: Run
       env:
         GO_PR_RELEASE_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Required
         GO_PR_RELEASE_RELEASE: main                      # Required. Release Branch: Destination to be merged
@@ -23,3 +28,4 @@ jobs:
         GO_PR_RELEASE_TEMPLATE: ".github/template.tmpl"  # Optional. Specify a template file that can be described in `go template`
         GO_PR_RELEASE_REVIEWERS: tomtwinkle              # Optional. PullRequest reviewers. Multiple reviewers can be specified, separated by `commas`
         GO_PR_RELEASE_DRY_RUN: false                     # Optional. if true, display only the results to be created without creating PullRequest
+      run: ./go-pr-release
