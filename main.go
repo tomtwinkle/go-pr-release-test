@@ -9,4 +9,5 @@ func main() {
 	fmt.Println("pr5 can merge")
 	fmt.Println("pr8 can merge")
 	fmt.Println("pr20 can merge")
+	fmt.Println("pr21 can merge")
 }
