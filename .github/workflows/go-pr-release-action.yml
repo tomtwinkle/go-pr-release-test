@@ -10,8 +10,6 @@ jobs:
     name: go-pr-release
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
     - name: go-pr-release
       uses: tomtwinkle/go-pr-release-action@main
       env:
