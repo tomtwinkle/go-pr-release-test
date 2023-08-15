@@ -10,8 +10,6 @@ jobs:
     name: go-pr-release
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
     - name: Install go-pr-release
       run: curl -s -L https://github.com/tomtwinkle/go-pr-release/releases/latest/download/go-pr-release_linux_x86_64.tar.gz | tar -xvz
     - name: Run
